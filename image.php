@@ -1,6 +1,6 @@
 ﻿<html>
 	<head>
-		<title>試作品</title>
+		<title>画像認識</title>
 	</head>
 
 	<body>
