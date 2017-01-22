@@ -65,20 +65,21 @@ require_once '../DbManager.php';
 		$ingdata[]=$row['ing8'];
 		$ingdata[]=$row['ing9'];		
 		$ingdata[]=$row['ing10'];
-	}
-	
+	}?>
   <h2>ingredients</h2>
   <table border='1'>
   <tr><th>text</th><th>score</th></tr>
     <tr>
-		foreach($ingdata as $key => $value){
+	<?php	
+	    foreach($ingdata as $key => $value){
+	?>
 			<td><?php echo $key; ?></td>
 			<td><?php echo $value; ?></td>
 		}
 	</tr>
+	  <?php
   $db = NULL;
 
     }
-?>
 	</body>
 </html>
