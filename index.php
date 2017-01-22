@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>PHP Starter Application</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-	<table>
-		<tr>
-			<td style='width: 30%;'>
-				<img class = 'newappIcon' src='images/newapp-icon.png'>
-			</td>
-			<td>
-				<h1 id = "message"><?php echo "Hello World!"; ?></h1>
-				<p class='description'></p> Thanks for creating a <span class="blue">PHP Starter Application</span>.
-			</td>
-		</tr>
-	</table>
-</body>
+﻿<html>
+	<head>
+		<title>料理の検索</title>
+	</head>
+
+	<body>
+<!-----料理名検索----->
+		<form method="POST" action="image.php">
+		<p>
+			料理名：
+			<input type="text" name="name" size="20" />
+		</p>
+		<p>
+			画像URL：
+			<input type="text" name="url" size="50" />
+		</p>
+		
+		<input type="submit" value="実行" />
+		</form>
+
+	</body>
 </html>

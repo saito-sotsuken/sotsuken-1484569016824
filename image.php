@@ -7,9 +7,9 @@
 	<?php
 	$trans1 = 0;
 	$trans2 = 0;
-	if( isset( $_GET['url'] ) ){
+	if( isset( $_POST['url'] ) ){
 		$apikey = 'dccd4a5837cfbb770c8ac3956fa7fb72258d954c';
-		$url = $_GET['url'];
+		$url = $_POST['url'];
 		$alchemyurl = 'http://access.alchemyapi.com/calls/url/';
 	?>
 	<img src='<?php echo $url; ?>'/>
@@ -39,6 +39,37 @@
 ?>
   </table>
   <p/>
+<?php
+require_once '../DbManager.php';
+  $db = getDb();
+  $stt1 = $db->prepare('SELECT * FROM ingredient WHERE name =?');
+  $stt1->bindValue(1, $_POST['name'] ?: 1);
+  $stt1->execute();
+  $ingdata=array();
+	while ($row = $stt->fetch(PDO::FETCH_ASSOC)) {
+		$ingdata[]=$row['ing1'];
+		$ingdata[]=$row['ing2'];
+		$ingdata[]=$row['ing3'];
+		$ingdata[]=$row['ing4'];
+		$ingdata[]=$row['ing5'];
+		$ingdata[]=$row['ing6'];
+		$ingdata[]=$row['ing7'];
+		$ingdata[]=$row['ing8'];
+		$ingdata[]=$row['ing9'];		
+		$ingdata[]=$row['ing10'];
+	}
+	
+  <h2>ingredients</h2>
+  <table border='1'>
+  <tr><th>text</th><th>score</th></tr>
+    <tr>
+		foreach($ingdata as $key => $value){
+			<td><?php echo $key; ?></td>
+			<td><?php echo $value; ?></td>
+		}
+	</tr>
+  $db = NULL;
+?>
 <?php
       }
     }
