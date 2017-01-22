@@ -41,43 +41,7 @@
 	<?php
 	      		}
 	?>		
-	<?php
-			require_once './DbManager.php';
-  			$db = getDb();
-  			$stt1 = $db->prepare('SELECT * FROM ingredient WHERE name =?');
- 			$stt1->bindValue(1, $_POST['name'] ?: 1);
-			$stt1->execute();
-  			$ingdata=array();
-			while ($row = $stt->fetch(PDO::FETCH_ASSOC)) {
-				$ingdata[]=$row['ing1'];
-				$ingdata[]=$row['ing2'];
-				$ingdata[]=$row['ing3'];
-				$ingdata[]=$row['ing4'];
-				$ingdata[]=$row['ing5'];
-				$ingdata[]=$row['ing6'];
-				$ingdata[]=$row['ing7'];
-				$ingdata[]=$row['ing8'];
-				$ingdata[]=$row['ing9'];		
-				$ingdata[]=$row['ing10'];
-			}
-			$ingdat = array_count_values($ingdata);
-
-	?>
- 			<h2>ingredients</h2>
-  			<table border='1'>
-  			<tr><th>ingredient</th><th>using_recipe</th></tr>
-    			<tr>
-	<?php	
-			for( $j = 0; $j < count( $ingdat ); $j ++ ){	
-	?>
-				<td><?php echo $key; ?></td>
-				<td><?php echo $value; ?></td>
-	<?php
-			}
-	?>
-			</tr>
-			</table>
- 			<p/>
+	
 	<?php
   			$db = NULL;
     		}
