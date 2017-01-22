@@ -6,9 +6,9 @@
 	<?php
 		$trans1 = 0;
 		$trans2 = 0;
-		if( isset( $_get['url'] ) ){
+		if( isset( $_POST['url'] ) ){
 			$apikey = 'dccd4a5837cfbb770c8ac3956fa7fb72258d954c';
-			$url = $_get['url'];
+			$url = $_POST['url'];
 			$alchemyurl = 'http://access.alchemyapi.com/calls/url/';
 	?>
 			<img src='<?php echo $url; ?>'/>
@@ -45,7 +45,7 @@
 			require_once './DbManager.php';
   			$db = getDb();
   			$stt1 = $db->prepare('SELECT * FROM ingredient WHERE name =?');
- 			$stt1->bindValue(1, $_GET['name'] ?: 1);
+ 			$stt1->bindValue(1, $_POST['name'] ?: 1);
 			$stt1->execute();
   			$ingdata=array();
 			while ($row = $stt->fetch(PDO::FETCH_ASSOC)) {
