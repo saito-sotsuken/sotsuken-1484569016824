@@ -63,7 +63,7 @@
 	?>
  			<h2>ingredients</h2>
   			<table border='1'>
-  			<tr><th>text</th><th>score</th></tr>
+  			<tr><th>ingredient</th><th>using_recipe</th></tr>
     			<tr>
 	<?php	
 	    		foreach($ingdata as $key => $value){
@@ -72,8 +72,11 @@
 				<td><?php echo $value; ?></td>
 			}
 			</tr>
+			</table>
+ 			<p/>
 	<?php
   			$db = NULL;
-    		}		
+    		}
+	?>
 	</body>
 </html>
