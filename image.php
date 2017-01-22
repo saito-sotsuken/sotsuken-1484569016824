@@ -16,7 +16,7 @@
 	<p/>
 
 	<?php
-	$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . urlencode( $url );
+	$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . $url ;
 	$text1 = file_get_contents( $apiurl1 );
 	$json1 = json_decode( $text1 );
 
