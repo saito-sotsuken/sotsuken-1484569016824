@@ -5,15 +5,15 @@
 
 	<body>
 	<?php
-	$trans1 = 0;
-	$trans2 = 0;
-	if( isset( $_POST['url'] ) ){
-		$apikey = 'dccd4a5837cfbb770c8ac3956fa7fb72258d954c';
-		$url = $_POST['url'];
-		$alchemyurl = 'http://access.alchemyapi.com/calls/url/';
+		$trans1 = 0;
+		$trans2 = 0;
+		if( isset( $_POST['url'] ) ){
+			$apikey = 'dccd4a5837cfbb770c8ac3956fa7fb72258d954c';
+			$url = $_POST['url'];
+			$alchemyurl = 'http://access.alchemyapi.com/calls/url/';
 	?>
-	<img src='<?php echo $url; ?>'/>
-	<p/>
+		<img src='<?php echo $url; ?>'/>
+		<p/>
 
 	<?php
 	$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . $url ;
@@ -39,6 +39,10 @@
 ?>
   </table>
   <p/>
+
+<?php
+      }
+?>		
 <?php
 require_once '../DbManager.php';
   $db = getDb();
@@ -69,9 +73,7 @@ require_once '../DbManager.php';
 		}
 	</tr>
   $db = NULL;
-?>
-<?php
-      }
+
     }
 ?>
 	</body>
