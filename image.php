@@ -6,15 +6,15 @@
 	<?php
 		$trans1 = 0;
 		$trans2 = 0;
-		if( isset( $_POST['url'] ) ){
+		if( isset( $_get['url'] ) ){
 			$apikey = 'dccd4a5837cfbb770c8ac3956fa7fb72258d954c';
-			$url = $_POST['url'];
+			$url = $_get['url'];
 			$alchemyurl = 'http://access.alchemyapi.com/calls/url/';
 	?>
 			<img src='<?php echo $url; ?>'/>
 			<p/>
 	<?php
-			$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . $url ;
+			$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . urlencode($url) ;
 			$text1 = file_get_contents( $apiurl1 );
 			$json1 = json_decode( $text1 );
 
@@ -45,7 +45,7 @@
 			require_once './DbManager.php';
   			$db = getDb();
   			$stt1 = $db->prepare('SELECT * FROM ingredient WHERE name =?');
- 			$stt1->bindValue(1, $_POST['name'] ?: 1);
+ 			$stt1->bindValue(1, $_GET['name'] ?: 1);
 			$stt1->execute();
   			$ingdata=array();
 			while ($row = $stt->fetch(PDO::FETCH_ASSOC)) {
