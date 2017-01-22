@@ -4,10 +4,6 @@
 	</head>
 
 	<body>
-		<?php 
-ini_set("display_errors", On);
-error_reporting(E_ALL);
-?>
 	<?php
 		$trans1 = 0;
 		$trans2 = 0;
@@ -20,39 +16,39 @@ error_reporting(E_ALL);
 		<p/>
 
 	<?php
-	$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . $url ;
-	$text1 = file_get_contents( $apiurl1 );
-	$json1 = json_decode( $text1 );
+		$apiurl1 = $alchemyurl . 'URLGetRankedImageKeywords?apikey=' . $apikey . '&outputMode=json&url=' . $url ;
+		$text1 = file_get_contents( $apiurl1 );
+		$json1 = json_decode( $text1 );
 
-	$trans1 = $json1->totalTransactions;
-	$imageKeywords = $json1->imageKeywords;
-	if( count( $imageKeywords ) ){
+		$trans1 = $json1->totalTransactions;
+		$imageKeywords = $json1->imageKeywords;
+		if( count( $imageKeywords ) ){
 	?>
-	<h2>Keywords</h2>
-	<table border='1'>
-    <tr><th>text</th><th>score</th></tr>
+			<h2>Keywords</h2>
+			<table border='1'>
+			<tr><th>text</th><th>score</th></tr>
 	<?php
-    for( $i = 0; $i < count( $imageKeywords ); $i ++ ){
-      $imageKeyword = $imageKeywords[$i];
-      $text = $imageKeyword->text;
-      $score = $imageKeyword->score;
+    		for( $i = 0; $i < count( $imageKeywords ); $i ++ ){	
+		$imageKeyword = $imageKeywords[$i];
+		$text = $imageKeyword->text;
+		$score = $imageKeyword->score;
 	?>
-    <tr><td><?php echo $text; ?></td><td><?php echo $score; ?></td></tr>
-<?php
-    }
-?>
-  </table>
-  <p/>
+    		<tr><td><?php echo $text; ?></td><td><?php echo $score; ?></td></tr>
+	<?php
+    		}
+	?>
+  	</table>
+ 	 <p/>
 
-<?php
-      }
-?>		
-<?php
-require_once '../DbManager.php';
-  $db = getDb();
-  $stt1 = $db->prepare('SELECT * FROM ingredient WHERE name =?');
-  $stt1->bindValue(1, $_POST['name'] ?: 1);
-  $stt1->execute();
+	<?php
+	      }
+	?>		
+	<?php
+		require_once './DbManager.php';
+  		$db = getDb();
+  		$stt1 = $db->prepare('SELECT * FROM ingredient WHERE name =?');
+ 		$stt1->bindValue(1, $_POST['name'] ?: 1);
+		  $stt1->execute();
   $ingdata=array();
 	while ($row = $stt->fetch(PDO::FETCH_ASSOC)) {
 		$ingdata[]=$row['ing1'];
