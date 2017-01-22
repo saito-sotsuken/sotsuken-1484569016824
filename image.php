@@ -60,17 +60,21 @@
 				$ingdata[]=$row['ing9'];		
 				$ingdata[]=$row['ing10'];
 			}
+			$ingdat = array_count_values($ingdata);
+
 	?>
  			<h2>ingredients</h2>
   			<table border='1'>
   			<tr><th>ingredient</th><th>using_recipe</th></tr>
     			<tr>
 	<?php	
-	    		foreach($ingdata as $key => $value){
+			for( $j = 0; $j < count( $ingdat ); $j ++ ){	
 	?>
 				<td><?php echo $key; ?></td>
 				<td><?php echo $value; ?></td>
+	<?php
 			}
+	?>
 			</tr>
 			</table>
  			<p/>
