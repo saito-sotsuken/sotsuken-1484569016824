@@ -74,7 +74,6 @@
 			</tr>
 	<?php
   			$db = NULL;
-    		}
-	?>		
+    		}		
 	</body>
 </html>
