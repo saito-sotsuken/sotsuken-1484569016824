@@ -5,7 +5,7 @@
 
 	<body>
 <!-----料理名検索----->
-		<form method="POST" action="image.php">
+		<form method="POST" enctype="multipart/form-data" action="image.php">
 		<p>
 			料理名：
 			<input type="text" name="name" size="20" />
