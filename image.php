@@ -1,4 +1,9 @@
+<html>
+	<head>
+		<title>試作品</title>
+	</head>
 
+	<body>
 	<?php
 	$trans1 = 0;
 	$trans2 = 0;
@@ -69,4 +74,5 @@ require_once '../DbManager.php';
       }
     }
 ?>
-
+	</body>
+</html>
